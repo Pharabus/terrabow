@@ -1,14 +1,15 @@
 package pharabus.mods.terrabow.item;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,15 +33,15 @@ import pharabus.mods.terrabow.entity.EntityTerraArrow;
 import pharabus.mods.terrabow.entity.EntityTinArrow;
 import pharabus.mods.terrabow.entity.EntityZincArrow;
 import TFC.API.ICausesDamage;
-import TFC.API.ISize;
 import TFC.API.Enums.EnumDamageType;
 import TFC.API.Enums.EnumSize;
 import TFC.API.Enums.EnumWeight;
 import TFC.Core.TFCTabs;
+import TFC.Core.Util.StringUtil;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemTerraBow extends ItemSword implements ISize, ICausesDamage{
+public class ItemTerraBow extends ItemTerraBowBase implements ICausesDamage{
 	
 	public static final String[] bowPullIconNameArray = new String[] {"TerraBowPull0", "TerraBowPull1", "TerraBowPull2"};
     @SideOnly(Side.CLIENT)
@@ -48,21 +49,13 @@ public class ItemTerraBow extends ItemSword implements ISize, ICausesDamage{
     private int arrowIndex = 0;
     public Icon[] iconArrowArray = new Icon[TerraBowSettings.UniqueArrows * 3];
     
-	public ItemTerraBow( int id ){
-		super(id,EnumToolMaterial.WOOD);
+	public ItemTerraBow(int id){
+		super(id, EnumSize.LARGE, EnumWeight.MEDIUM);
 		setCreativeTab(TFCTabs.TFCWeapons);
         setFull3D();
 	}
 	
 	
-	@Override
-	public EnumSize getSize(){
-		return EnumSize.LARGE;
-	}
-	@Override
-	public EnumWeight getWeight(){
-		return EnumWeight.MEDIUM;
-	}
 	@Override
 	public boolean canStack(){
 		return false;
@@ -214,13 +207,8 @@ public class ItemTerraBow extends ItemSword implements ISize, ICausesDamage{
     public int getArrowIndex(){
     	return this.arrowIndex;
     }
-	@Override
-    public int getItemStackLimit(){
-	      if (canStack()) {
-	            return getSize().stackSize * getWeight().multiplier <= 64 ? getSize().stackSize * getWeight().multiplier : 64;
-	          }
-	          return 1;
-    }
+	
+    
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons( IconRegister iconRegister ){
@@ -251,7 +239,14 @@ public class ItemTerraBow extends ItemSword implements ISize, ICausesDamage{
         }
         return this.itemIcon;
     }
-
+	
+	@Override
+	public void addInformation(ItemStack is, EntityPlayer player,
+	        List arraylist, boolean flag) {
+	    // TODO Auto-generated method stub
+	    super.addInformation(is, player, arraylist, flag);
+	    arraylist.add(EnumChatFormatting.AQUA + StringUtil.localize(GetDamageType().toString()));
+	}
 
     @Override
     public EnumDamageType GetDamageType() {
