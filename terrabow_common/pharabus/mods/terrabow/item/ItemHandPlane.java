@@ -1,10 +1,10 @@
 package pharabus.mods.terrabow.item;
 
-import pharabus.mods.terrabow.TerraBowSettings;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemTool;
+import pharabus.mods.terrabow.TerraBowSettings;
 import TFC.API.ISize;
 import TFC.API.Enums.EnumSize;
 import TFC.API.Enums.EnumWeight;

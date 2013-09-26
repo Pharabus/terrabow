@@ -1,7 +1,6 @@
 package pharabus.mods.terrabow.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import pharabus.mods.terrabow.TerraBowSettings;
 
 public class ItemLongbow extends ItemTerraBow{

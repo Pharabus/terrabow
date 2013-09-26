@@ -9,10 +9,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import pharabus.mods.terrabow.entity.EntityTerraArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import pharabus.mods.terrabow.entity.EntityTerraArrow;
 
 @SideOnly(Side.CLIENT)
 public class RenderTerraArrow extends Render{

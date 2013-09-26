@@ -1,41 +1,21 @@
 package pharabus.mods.terrabow.item;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import pharabus.mods.terrabow.TerraBowSettings;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.Item;
-import TFC.API.ISize;
+import pharabus.mods.terrabow.TerraBowSettings;
 import TFC.API.Enums.EnumSize;
 import TFC.API.Enums.EnumWeight;
 import TFC.Core.TFCTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFootedShaft extends Item implements ISize{
+public class ItemFootedShaft extends ItemTerraBowBase{
 
 	public ItemFootedShaft( int id ){
-		super( id );
-		setCreativeTab(TFCTabs.TFCMisc);
+		super(id,EnumSize.MEDIUM,EnumWeight.LIGHT );
+		setCreativeTab(TFCTabs.TFCUnfinished);
 	}
-	@Override
-	public EnumSize getSize(){
-		return EnumSize.MEDIUM;
-	}
-	@Override
-	public EnumWeight getWeight(){
-		return EnumWeight.LIGHT;
-	}
-    @Override
-    public int getItemStackLimit(){
-        if (canStack()) {
-            return getSize().stackSize * getWeight().multiplier <= 64 ? getSize().stackSize * getWeight().multiplier : 64;
-          }
-          return 1;
-    }
-    @Override
-    public boolean canStack() {
-        // TODO Auto-generated method stub
-        return true;
-    }
+	
+   
     
     @SideOnly(Side.CLIENT)
     @Override

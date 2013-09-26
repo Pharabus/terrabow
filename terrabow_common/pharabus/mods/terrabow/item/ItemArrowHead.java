@@ -4,40 +4,24 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import pharabus.mods.terrabow.TerraBowSettings;
-import TFC.API.ISize;
 import TFC.API.Enums.EnumSize;
 import TFC.API.Enums.EnumWeight;
 import TFC.Core.TFCTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemArrowHead extends Item implements ISize{
+public class ItemArrowHead extends ItemTerraBowBase{
 	
 	public Icon[] icons;
 	public ItemArrowHead( int id ){
-		super( id );
-		setCreativeTab(TFCTabs.TFCMisc);
+		super(id,EnumSize.VERYSMALL,EnumWeight.LIGHT);
+		setCreativeTab(TFCTabs.TFCUnfinished);
 		icons = new Icon[TerraBowSettings.ArrowheadNames.length];
 	}
-	@Override
-	public EnumSize getSize(){
-		return EnumSize.VERYSMALL;
-	}
-	@Override
-	public EnumWeight getWeight(){
-		return EnumWeight.LIGHT;
-	}
-	@Override
-    public int getItemStackLimit(){
-	    if (canStack()) {
-	        return getSize().stackSize * getWeight().multiplier <= 64 ? getSize().stackSize * getWeight().multiplier : 64;
-	      }
-	      return 1;
-    }
+	
 	@Override
 	public void getSubItems( int par1, CreativeTabs creativeTabs, List list ){
 		for( int i = 0; i < this.icons.length; i++ ){
@@ -59,10 +43,5 @@ public class ItemArrowHead extends Item implements ISize{
 	@Override
 	public String getUnlocalizedName( ItemStack itemStack ){
 		return this.getUnlocalizedName() + "." + TerraBowSettings.ArrowheadNames[itemStack.getItemDamage()];
-	}
-    @Override
-    public boolean canStack() {
-        // TODO Auto-generated method stub
-        return true;
-    }
+	} 
 }
