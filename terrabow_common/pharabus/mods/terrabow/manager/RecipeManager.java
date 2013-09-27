@@ -137,7 +137,6 @@ public class RecipeManager {
 		AnvilCraftingManagerTFC anvilManager = AnvilCraftingManagerTFC.getInstance();
 		
 		//Plane Blades
-		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.BismuthIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.STONE, new ItemStack( ItemManager.PlaneBladeBismuth, 1, 0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.BismuthBronzeIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.BISMUTHBRONZE, new ItemStack( ItemManager.PlaneBladeBismuthBronze, 1,0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.BlackBronzeIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.BLACKBRONZE, new ItemStack( ItemManager.PlaneBladeBlackBronze, 1, 0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.BlackSteelIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.BLACKSTEEL, new ItemStack( ItemManager.PlaneBladeBlackSteel, 1, 0 ) ) );
@@ -146,10 +145,7 @@ public class RecipeManager {
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.CopperIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.COPPER, new ItemStack( ItemManager.PlaneBladeCopper, 1, 0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.WroughtIronIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.WROUGHTIRON, new ItemStack( ItemManager.PlaneBladeWroughtIron, 1, 0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.RedSteelIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.REDSTEEL, new ItemStack( ItemManager.PlaneBladeRedSteel, 1, 0 ) ) );
-		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.RoseGoldIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.BRONZE, new ItemStack( ItemManager.PlaneBladeRoseGold, 1, 0 ) ) );
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.SteelIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.STEEL, new ItemStack( ItemManager.PlaneBladeSteel, 1, 0 ) ) );
-		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.TinIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.STONE, new ItemStack( ItemManager.PlaneBladeTin, 1, 0 ) ) );
-		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.ZincIngot ), new ItemStack( ItemManager.PlanPlaneBlade ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.DRAWSECONDFROMLAST, CraftingRuleEnum.PUNCHLAST, false, AnvilReq.STONE, new ItemStack( ItemManager.PlaneBladeZinc, 1, 0 ) ) );
 		
 		//Metal Rods
 		anvilManager.addRecipe( new AnvilRecipe( new ItemStack( TFCItems.BismuthIngot ), new ItemStack( ItemManager.PlanMetalRod ), 10, CraftingRuleEnum.DRAWTHIRDFROMLAST, CraftingRuleEnum.HITSECONDFROMLAST, CraftingRuleEnum.HITLAST, false, AnvilReq.STONE, new ItemStack( ItemManager.MetalRod, 1, 0 ) ) );
@@ -195,6 +191,9 @@ public class RecipeManager {
 
 		//Arrowhead Plan
 		craftingManager.addRecipe( new ItemStack( ItemManager.PlanArrowHead, 1 ), new Object[] { "  #  ", " ### ", "#####", "#####", " ### ", Character.valueOf( '#' ), TFCItems.Ink } );
+		
+		//clay mold plan
+		craftingManager.addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1), new Object[] { "  #  ", " ### ", "#####", "#####", " ### ", Character.valueOf('#'), new ItemStack(TFCItems.FlatClay, 1, 1) });
 	}
 	public static void RegisterItemHeat(){
 		HeatRegistry heatManager = HeatRegistry.getInstance();
@@ -213,7 +212,7 @@ public class RecipeManager {
 		HeatRaw rawTin = 			new HeatRaw( 0.69f, 232f);
 		HeatRaw rawZinc = 			new HeatRaw( 0.66f, 420f);
 		
-		//heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 0 ), rawBismuth, new ItemStack( TFCItems.BismuthUnshaped, 1 ) ) );
+		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 0 ), rawBismuth, new ItemStack( TFCItems.BismuthUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 1 ), rawBismuthBronze, new ItemStack( TFCItems.BismuthBronzeUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 2 ), rawBlackBronze, new ItemStack( TFCItems.BlackBronzeUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 3 ), rawBlackSteel, new ItemStack( TFCItems.BlackSteelUnshaped, 1 ) ) );
@@ -222,10 +221,10 @@ public class RecipeManager {
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 6 ), rawCopper, new ItemStack( TFCItems.CopperUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 7 ), rawWroughtIron, new ItemStack( TFCItems.WroughtIronUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 8 ), rawRedSteel, new ItemStack( TFCItems.RedSteelUnshaped, 1 ) ) );
-		//heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 9 ), rawRoseGold, new ItemStack( TFCItems.RoseGoldUnshaped, 1 ) ) );
+		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 9 ), rawRoseGold, new ItemStack( TFCItems.RoseGoldUnshaped, 1 ) ) );
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 10 ), rawSteel, new ItemStack( TFCItems.SteelUnshaped, 1 ) ) );
-		//heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 11 ), rawTin, new ItemStack( TFCItems.TinUnshaped, 1 ) ) );
-		//heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 12 ), rawZinc, new ItemStack( TFCItems.ZincUnshaped, 1 ) ) );
+		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 11 ), rawTin, new ItemStack( TFCItems.TinUnshaped, 1 ) ) );
+		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.MetalRod, 1, 12 ), rawZinc, new ItemStack( TFCItems.ZincUnshaped, 1 ) ) );
 		
 		heatManager.addIndex( new HeatIndex( new ItemStack( ItemManager.SwimBladderBottle, 1 ), 0.15f, 100.0f, new ItemStack( ItemManager.GlueBottle, 1 ) ) );
 	}

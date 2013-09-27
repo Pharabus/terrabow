@@ -3,6 +3,7 @@ package pharabus.mods.terrabow.manager;
 import net.minecraft.item.Item;
 import pharabus.mods.terrabow.TerraBowSettings;
 import pharabus.mods.terrabow.item.ItemArrowHead;
+import pharabus.mods.terrabow.item.ItemClayMold;
 import pharabus.mods.terrabow.item.ItemCompositeBow;
 import pharabus.mods.terrabow.item.ItemFinishedWoodShaft;
 import pharabus.mods.terrabow.item.ItemFootedShaft;
@@ -25,6 +26,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ItemManager {
     
     public static Item Arrowhead;
+    public static Item ClayMoldArrowHead;
     
     public static Item FinishedWoodShaft;
 	public static Item FootedShaft;
@@ -32,7 +34,6 @@ public class ItemManager {
 	public static Item RoughWoodShaft;
 
 	//Hand Planes
-	//public static Item HandPlaneBismuth;
     public static Item HandPlaneBismuthBronze;
     public static Item HandPlaneBlackBronze;
     public static Item HandPlaneBlackSteel;
@@ -41,10 +42,7 @@ public class ItemManager {
     public static Item HandPlaneCopper;
     public static Item HandPlaneWroughtIron;
     public static Item HandPlaneRedSteel;
-    //public static Item HandPlaneRoseGold;
     public static Item HandPlaneSteel;
-    //public static Item HandPlaneTin;
-    //public static Item HandPlaneZinc;
     
     
     //Old versions
@@ -55,7 +53,6 @@ public class ItemManager {
     public static Item PlanMetalRod;
     public static Item PlanArrowHead;
     
-    public static Item PlaneBladeBismuth;
     public static Item PlaneBladeBismuthBronze;
     public static Item PlaneBladeBlackBronze;
     public static Item PlaneBladeBlackSteel;
@@ -64,10 +61,7 @@ public class ItemManager {
     public static Item PlaneBladeCopper;
     public static Item PlaneBladeWroughtIron;
     public static Item PlaneBladeRedSteel;
-    public static Item PlaneBladeRoseGold;
     public static Item PlaneBladeSteel;
-    public static Item PlaneBladeTin;
-    public static Item PlaneBladeZinc;
 	
     public static Item MetalRod;
     
@@ -85,6 +79,7 @@ public class ItemManager {
     
 	public static void SetItems(){
 		ItemManager.Arrowhead = new ItemArrowHead( TerraBowSettings.ArrowHeadID ).setUnlocalizedName( "ArrowHead" );
+		ItemManager.ClayMoldArrowHead = new ItemClayMold(TerraBowSettings.ClayMoldArrowHeadID).setUnlocalizedName( "ClayMoldArrowHead" );
 		
 		ItemManager.FinishedWoodShaft = new ItemFinishedWoodShaft( TerraBowSettings.FinishedWoodShaftID ).setUnlocalizedName( "FinishedWoodShaft" );
 		ItemManager.FootedShaft = new ItemFootedShaft( TerraBowSettings.FootedShaftID ).setUnlocalizedName( "FootedShaft" );
@@ -96,7 +91,6 @@ public class ItemManager {
 		ItemManager.GlueBottle = new ItemGlueBottle( TerraBowSettings.GlueBottleID ).setUnlocalizedName( "GlueBottle" );
 		
 		//Hand Planes
-		//ItemManager.HandPlaneBismuth = new ItemHandPlane( TerraBowSettings.HandPlaneBismuthID, TFC.TFCItems.bis BismuthToolMaterial ).setUnlocalizedName( "HandPlaneBismuth" );
 		ItemManager.HandPlaneBismuthBronze = new ItemHandPlane( TerraBowSettings.HandPlaneBismuthBronzeID, TFC.TFCItems.BismuthBronzeToolMaterial ).setUnlocalizedName( "HandPlaneBismuthBronze" );
 		ItemManager.HandPlaneBlackBronze = new ItemHandPlane( TerraBowSettings.HandPlaneBlackBronzeID, TFC.TFCItems.BlackBronzeToolMaterial ).setUnlocalizedName( "HandPlaneBlackBronze" );
 		ItemManager.HandPlaneBlackSteel = new ItemHandPlane( TerraBowSettings.HandPlaneBlackSteelID, TFC.TFCItems.BlackSteelToolMaterial ).setUnlocalizedName( "HandPlaneBlackSteel" );
@@ -105,18 +99,15 @@ public class ItemManager {
 		ItemManager.HandPlaneCopper = new ItemHandPlane( TerraBowSettings.HandPlaneCopperID, TFC.TFCItems.CopperToolMaterial ).setUnlocalizedName( "HandPlaneCopper" );
 		ItemManager.HandPlaneWroughtIron = new ItemHandPlane( TerraBowSettings.HandPlaneWroughtIronID, TFC.TFCItems.IronToolMaterial ).setUnlocalizedName( "HandPlaneIron" );
 		ItemManager.HandPlaneRedSteel = new ItemHandPlane( TerraBowSettings.HandPlaneRedSteelID, TFC.TFCItems.RedSteelToolMaterial ).setUnlocalizedName( "HandPlaneRedSteel" );
-		//ItemManager.HandPlaneRoseGold = new ItemHandPlane( TerraBowSettings.HandPlaneRoseGoldID, TFC.TFCItems.ro RoseGoldToolMaterial ).setUnlocalizedName( "HandPlaneRoseGold" );
 		ItemManager.HandPlaneSteel = new ItemHandPlane( TerraBowSettings.HandPlaneSteelID, TFC.TFCItems.SteelToolMaterial ).setUnlocalizedName( "HandPlaneSteel" );
-		//ItemManager.HandPlaneTin = new ItemHandPlane( TerraBowSettings.HandPlaneTinID, TFC.TFCItems.TinToolMaterial ).setUnlocalizedName( "HandPlaneTin" );
-    	//ItemManager.HandPlaneZinc = new ItemHandPlane( TerraBowSettings.HandPlaneZincID, TFC.TFCItems.ZincToolMaterial ).setUnlocalizedName( "HandPlaneZinc" );
+
 		
 		//Plans
 		ItemManager.PlanPlaneBlade = new ItemTerraPlan( TerraBowSettings.PlanPlaneBladeID ).setUnlocalizedName( "PlaneBladePlan" );
 		ItemManager.PlanMetalRod = new ItemTerraPlan( TerraBowSettings.PlanMetalRodID ).setUnlocalizedName( "MetalRodPlan" );
 		ItemManager.PlanArrowHead = new ItemTerraPlan( TerraBowSettings.PlanArrowHeadID ).setUnlocalizedName( "ArrowheadPlan" );
 		
-		//Plane Blades
-		ItemManager.PlaneBladeBismuth = new ItemPlaneBlade( TerraBowSettings.PlaneBladeBismuthID ).setUnlocalizedName( "BismuthPlaneBlade" );
+		//Plane Blades		
 		ItemManager.PlaneBladeBismuthBronze = new ItemPlaneBlade( TerraBowSettings.PlaneBladeBismuthBronzeID ).setUnlocalizedName( "BismuthBronzePlaneBlade" );
 		ItemManager.PlaneBladeBlackBronze = new ItemPlaneBlade( TerraBowSettings.PlaneBladeBlackBronzeID ).setUnlocalizedName( "BlackBronzePlaneBlade" );
 		ItemManager.PlaneBladeBlackSteel = new ItemPlaneBlade( TerraBowSettings.PlaneBladeBlackSteelID ).setUnlocalizedName( "BlackSteelPlaneBlade" );
@@ -124,11 +115,9 @@ public class ItemManager {
 		ItemManager.PlaneBladeBronze = new ItemPlaneBlade( TerraBowSettings.PlaneBladeBronzeID ).setUnlocalizedName( "BronzePlaneBlade" );
 		ItemManager.PlaneBladeCopper = new ItemPlaneBlade( TerraBowSettings.PlaneBladeCopperID ).setUnlocalizedName( "CopperPlaneBlade" );
 		ItemManager.PlaneBladeWroughtIron = new ItemPlaneBlade( TerraBowSettings.PlaneBladeWroughtIronID ).setUnlocalizedName( "IronPlaneBlade" );
-		ItemManager.PlaneBladeRedSteel = new ItemPlaneBlade( TerraBowSettings.PlaneBladeRedSteelID ).setUnlocalizedName( "RedSteelPlaneBlade" );
-		ItemManager.PlaneBladeRoseGold = new ItemPlaneBlade( TerraBowSettings.PlaneBladeRoseGoldID ).setUnlocalizedName( "RoseGoldPlaneBlade" );
+		ItemManager.PlaneBladeRedSteel = new ItemPlaneBlade( TerraBowSettings.PlaneBladeRedSteelID ).setUnlocalizedName( "RedSteelPlaneBlade" );		
 		ItemManager.PlaneBladeSteel = new ItemPlaneBlade( TerraBowSettings.PlaneBladeSteelID ).setUnlocalizedName( "SteelPlaneBlade" );
-		ItemManager.PlaneBladeTin = new ItemPlaneBlade( TerraBowSettings.PlaneBladeTinID ).setUnlocalizedName( "TinPlaneBlade" );
-		ItemManager.PlaneBladeZinc = new ItemPlaneBlade( TerraBowSettings.PlaneBladeZincID ).setUnlocalizedName( "ZincPlaneBlade" );
+
 
 		ItemManager.MetalRod = new ItemMetalRod( TerraBowSettings.MetalRodID ).setUnlocalizedName( "MetalRod" );
 
@@ -142,6 +131,7 @@ public class ItemManager {
 	}
 	public static void RegisterItems(){
 		GameRegistry.registerItem( ItemManager.Arrowhead, "itemArrowHead" );
+		GameRegistry.registerItem( ItemManager.ClayMoldArrowHead, "itemClayMoldArrowHead" );
 		
 		GameRegistry.registerItem( ItemManager.FinishedWoodShaft, "itemFinishedWoodShaft" );
 		GameRegistry.registerItem( ItemManager.FootedShaft, "itemFootedShaft" );
@@ -153,7 +143,6 @@ public class ItemManager {
 		GameRegistry.registerItem( ItemManager.GlueBottle, "itemGlueBottle" );
 		
 		//Hand Planes
-		//GameRegistry.registerItem( ItemManager.HandPlaneBismuth, "itemHandPlaneBismuth" );
 		GameRegistry.registerItem( ItemManager.HandPlaneBismuthBronze, "itemHandPlaneBismuthBronze" );
 		GameRegistry.registerItem( ItemManager.HandPlaneBlackBronze, "itemHandPlaneBlackBronze" );
 		GameRegistry.registerItem( ItemManager.HandPlaneBlackSteel, "itemHandPlaneBlackSteel" );
@@ -162,10 +151,8 @@ public class ItemManager {
 		GameRegistry.registerItem( ItemManager.HandPlaneCopper, "itemHandPlaneCopper" );
 		GameRegistry.registerItem( ItemManager.HandPlaneWroughtIron, "itemHandPlaneWroughtIron" );
 		GameRegistry.registerItem( ItemManager.HandPlaneRedSteel, "itemHandPlaneRedSteel" );
-		//GameRegistry.registerItem( ItemManager.HandPlaneRoseGold, "itemHandPlaneRoseGold" );
 		GameRegistry.registerItem( ItemManager.HandPlaneSteel, "itemHandPlaneSteel" );
-		//GameRegistry.registerItem( ItemManager.HandPlaneTin, "itemHandPlaneTin" );
-		//GameRegistry.registerItem( ItemManager.HandPlaneZinc, "itemHandPlaneZinc" );
+
 		
 		//Plans
 		GameRegistry.registerItem( ItemManager.PlanPlaneBlade, "itemHandPlanePlan" );
@@ -173,7 +160,6 @@ public class ItemManager {
 		GameRegistry.registerItem( ItemManager.PlanArrowHead, "itemArrowHeadPlan" );
 		
 		//Plane Blades
-		GameRegistry.registerItem( ItemManager.PlaneBladeBismuth, "itemPlaneBladeBismuth" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeBismuthBronze, "itemPlaneBladeBismuthBronze" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeBlackBronze, "itemPlaneBladeBlackBronze" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeBlackSteel, "itemPlaneBladeBlackSteel" );
@@ -182,10 +168,7 @@ public class ItemManager {
 		GameRegistry.registerItem( ItemManager.PlaneBladeCopper, "itemPlaneBladeCopper" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeWroughtIron, "itemPlaneBladeWroughtIron" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeRedSteel, "itemPlaneBladeRedSteel" );
-		GameRegistry.registerItem( ItemManager.PlaneBladeRoseGold, "itemPlaneBladeRoseGold" );
 		GameRegistry.registerItem( ItemManager.PlaneBladeSteel, "itemPlaneBladeSteel" );
-		GameRegistry.registerItem( ItemManager.PlaneBladeTin, "itemPlaneBladeTin" );
-		GameRegistry.registerItem( ItemManager.PlaneBladeZinc, "itemPlaneBladeZinc" );
 		
 		GameRegistry.registerItem( ItemManager.MetalRod, "itemMetalRod" );
 
@@ -206,6 +189,10 @@ public class ItemManager {
 			LanguageRegistry.instance().addStringLocalization( key, value );
 		}
 		
+		//claymolds
+		ItemClayMold arrowheadMold = (ItemClayMold)ItemManager.ClayMoldArrowHead;
+		LanguageRegistry.addName(ItemManager.ClayMoldArrowHead, "Clay Arrowhead Mold");
+		
 		//Finished Wood Shaft
 		ItemFinishedWoodShaft finishedWoodShaft = (ItemFinishedWoodShaft) ItemManager.FinishedWoodShaft;
 		for( int i = 0; i < finishedWoodShaft.MetaNames.length; i++ ){
@@ -221,7 +208,6 @@ public class ItemManager {
 		LanguageRegistry.addName( ItemManager.RoughFootedShaft, "Rough Footed Shaft" );
 		
 		//Hand Planes
-		//LanguageRegistry.addName( ItemManager.HandPlaneBismuth, "Bismuth Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneBismuthBronze, "Bismuth Bronze Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneBlackBronze, "Black Bronze Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneBlackSteel, "Black Steel Plane" );
@@ -230,10 +216,7 @@ public class ItemManager {
 		LanguageRegistry.addName( ItemManager.HandPlaneCopper, "Copper Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneWroughtIron, "Wrought Iron Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneRedSteel, "Red Steel Plane" );
-		//LanguageRegistry.addName( ItemManager.HandPlaneRoseGold, "Rose Gold Plane" );
 		LanguageRegistry.addName( ItemManager.HandPlaneSteel, "Steel Plane" );
-		//LanguageRegistry.addName( ItemManager.HandPlaneTin, "Tin Plane" );
-		//LanguageRegistry.addName( ItemManager.HandPlaneZinc, "Zinc Plane" );
 		
 		//Plans
 		LanguageRegistry.addName( ItemManager.PlanPlaneBlade, "Plane Blade Plan" );
@@ -241,7 +224,6 @@ public class ItemManager {
 		LanguageRegistry.addName( ItemManager.PlanArrowHead, "Arrowhead Plan" );
 		
 		//Plane Blades
-		LanguageRegistry.addName( ItemManager.PlaneBladeBismuth, "Bismuth Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeBismuthBronze, "Bismuth Bronze Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeBlackBronze, "Black Bronze Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeBlackSteel, "Black Steel Plane Blade" );
@@ -250,11 +232,8 @@ public class ItemManager {
 		LanguageRegistry.addName( ItemManager.PlaneBladeCopper, "Copper Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeWroughtIron, "Iron Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeRedSteel, "Red Steel Plane Blade" );
-		LanguageRegistry.addName( ItemManager.PlaneBladeRoseGold, "Rose Gold Plane Blade" );
 		LanguageRegistry.addName( ItemManager.PlaneBladeSteel, "Steel Plane Blade" );
-		LanguageRegistry.addName( ItemManager.PlaneBladeTin, "Tin Plane Blade" );
-		LanguageRegistry.addName( ItemManager.PlaneBladeZinc, "Zinc Plane Blade" );
-//		
+		
 		ItemMetalRod metalRod = (ItemMetalRod) ItemManager.MetalRod;
 		for( int i = 0; i < metalRod.MetaNames.length; i++ ){
 			String key = "item.MetalRod." + metalRod.MetaNames[i] + ".name";
@@ -292,7 +271,7 @@ public class ItemManager {
 	}
 	public static Item[] getPlanes(){
 		//Must be in same order as getPlaneBlades
-		return new Item[] {	//ItemManager.HandPlaneBismuth,
+		return new Item[] {	
 							ItemManager.HandPlaneBismuthBronze,
 							ItemManager.HandPlaneBlackBronze,
 							ItemManager.HandPlaneBlackSteel,
@@ -300,16 +279,13 @@ public class ItemManager {
 							ItemManager.HandPlaneBronze,
 							ItemManager.HandPlaneCopper,
 							ItemManager.HandPlaneRedSteel,
-							//ItemManager.HandPlaneRoseGold,
 							ItemManager.HandPlaneSteel,
-							//ItemManager.HandPlaneTin,
 							ItemManager.HandPlaneWroughtIron
-							//ItemManager.HandPlaneZinc 
 							};
 	}
 	public static Item[] getPlaneBlades(){
 		//Must be in same order as getPlanes
-		return new Item[] { ItemManager.PlaneBladeBismuth,
+		return new Item[] { 
 							ItemManager.PlaneBladeBismuthBronze,
 							ItemManager.PlaneBladeBlackBronze,
 							ItemManager.PlaneBladeBlackSteel,
@@ -318,9 +294,7 @@ public class ItemManager {
 							ItemManager.PlaneBladeCopper,
 							ItemManager.PlaneBladeWroughtIron,
 							ItemManager.PlaneBladeRedSteel,
-							ItemManager.PlaneBladeRoseGold,
-							ItemManager.PlaneBladeSteel,
-							ItemManager.PlaneBladeTin,
-							ItemManager.PlaneBladeZinc };
+							ItemManager.PlaneBladeSteel
+							};
 	}
 }

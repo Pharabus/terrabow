@@ -5,6 +5,7 @@ import net.minecraftforge.common.Configuration;
 public class TerraBowSettings {
 	
     public static final String TEXTURE_LOCATION = "terrabow";
+ 
 	public static String[] ArrowheadNames = new String[] {  "Stone", "Bone", "Bismuth", "Bismuth Bronze", "Black Bronze", "Black Steel", "Blue Steel", "Bronze",
 															"Copper", "Iron", "Red Steel", "Rose Gold", "Steel", "Tin", "Zinc" };
 	public static int UniqueArrows = ArrowheadNames.length;
@@ -128,6 +129,8 @@ public class TerraBowSettings {
     public static int CompositeBowID = 10881;
     
     public static int LongbowBodyID = 10882;
+    
+    public static int ClayMoldArrowHeadID = 10883;
 	
 	
 	public static void config( Configuration config ){
@@ -256,5 +259,7 @@ public class TerraBowSettings {
 	    CompositeBowID = config.get( "Item IDs", "CompositeBow", CompositeBowID ).getInt();
 	    
 	    LongbowBodyID = config.get( "Item IDs", "LongbowBody", LongbowBodyID ).getInt();
+	    
+	    ClayMoldArrowHeadID = config.get( "Item IDs", "ClayMoldArrowHead", ClayMoldArrowHeadID ).getInt();
 	}
 }
