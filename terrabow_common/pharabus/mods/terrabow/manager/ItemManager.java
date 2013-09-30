@@ -79,7 +79,8 @@ public class ItemManager {
     
 	public static void SetItems(){
 		ItemManager.Arrowhead = new ItemArrowHead( TerraBowSettings.ArrowHeadID ).setUnlocalizedName( "ArrowHead" );
-		ItemManager.ClayMoldArrowHead = new ItemClayMold(TerraBowSettings.ClayMoldArrowHeadID).setUnlocalizedName( "ClayMoldArrowHead" );
+		ItemManager.ClayMoldArrowHead = new ItemClayMold(TerraBowSettings.ClayMoldArrowHeadID);//
+		((Item)ItemManager.ClayMoldArrowHead).setUnlocalizedName( "ClayMoldArrowHead" );
 		
 		ItemManager.FinishedWoodShaft = new ItemFinishedWoodShaft( TerraBowSettings.FinishedWoodShaftID ).setUnlocalizedName( "FinishedWoodShaft" );
 		ItemManager.FootedShaft = new ItemFootedShaft( TerraBowSettings.FootedShaftID ).setUnlocalizedName( "FootedShaft" );
