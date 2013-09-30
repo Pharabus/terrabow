@@ -1,13 +1,13 @@
 package pharabus.mods.terrabow.item;
 
-import pharabus.mods.terrabow.TerraBowSettings;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
+import net.minecraft.item.Item;
+import pharabus.mods.terrabow.TerraBowSettings;
 import TFC.Core.TFCTabs;
 import TFC.Items.Pottery.ItemPotteryMold;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemClayMold extends ItemPotteryMold {
 
@@ -19,7 +19,7 @@ public class ItemClayMold extends ItemPotteryMold {
     
     public ItemClayMold(int id) {
         super(id);
-        setCreativeTab(TFCTabs.TFCPottery);
+        ((Item)this).setCreativeTab(TFCTabs.TFCPottery);
        
     }
     
