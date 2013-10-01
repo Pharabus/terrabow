@@ -1,8 +1,13 @@
 package pharabus.mods.terrabow.item;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+import net.minecraft.util.StatCollector;
 import pharabus.mods.terrabow.TerraBowSettings;
 import TFC.Core.TFCTabs;
 import TFC.Items.Pottery.ItemPotteryMold;
@@ -23,6 +28,8 @@ public class ItemClayMold extends ItemPotteryMold {
        
     }
     
+
+    
     @Override
     public Icon getIconFromDamage(int damage) {
         if (damage == 0) return this.ClayIcon;
@@ -34,6 +41,20 @@ public class ItemClayMold extends ItemPotteryMold {
         
         return this.ClayIcon;
     }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List) {
+        par3List.add(new ItemStack(par1, 1, 0));
+        par3List.add(new ItemStack(par1, 1, 1));        
+    };
+    
+   @Override
+    public String getItemDisplayName(ItemStack itemstack) {
+       return ("" + StatCollector.translateToLocal(new StringBuilder().append(getUnlocalizedName(itemstack)).append(".name").toString())).trim();
+   }
+
+    
     
     @SideOnly(Side.CLIENT)
     @Override

@@ -24,7 +24,7 @@ public class ItemTerraPlan extends ItemTerraBowBase{
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons( IconRegister iconRegister ){
-        this.itemIcon = iconRegister.registerIcon(TerraBowSettings.TEXTURE_LOCATION + ":Plan");
+        this.itemIcon = iconRegister.registerIcon(TerraBowSettings.TEXTURE_LOCATION + ":plan");
     }
 
 }
