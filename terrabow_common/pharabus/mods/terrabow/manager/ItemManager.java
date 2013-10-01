@@ -20,6 +20,7 @@ import pharabus.mods.terrabow.item.ItemSwimBladder;
 import pharabus.mods.terrabow.item.ItemSwimBladderBottle;
 import pharabus.mods.terrabow.item.ItemTerraArrow;
 import pharabus.mods.terrabow.item.ItemTerraPlan;
+import TFC.Items.Pottery.ItemPotteryMold;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -80,6 +81,7 @@ public class ItemManager {
 	public static void SetItems(){
 		ItemManager.Arrowhead = new ItemArrowHead( TerraBowSettings.ArrowHeadID ).setUnlocalizedName( "ArrowHead" );
 		ItemManager.ClayMoldArrowHead = new ItemClayMold(TerraBowSettings.ClayMoldArrowHeadID);//
+		((ItemPotteryMold)ItemManager.ClayMoldArrowHead).setMetaNames(new String[] { "arrowheadClayMold", "arrowheadCeramicMold", "arrowheadCopperMold", "arrowheadBronzeMold", "arrowheadBismuthBronzeMold", "arrowheadBlackBronzeMold" });
 		((Item)ItemManager.ClayMoldArrowHead).setUnlocalizedName( "ClayMoldArrowHead" );
 		
 		ItemManager.FinishedWoodShaft = new ItemFinishedWoodShaft( TerraBowSettings.FinishedWoodShaftID ).setUnlocalizedName( "FinishedWoodShaft" );
