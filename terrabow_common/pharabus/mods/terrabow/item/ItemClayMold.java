@@ -4,28 +4,30 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.util.StatCollector;
 import pharabus.mods.terrabow.TerraBowSettings;
+import TFC.API.Enums.EnumSize;
+import TFC.API.Enums.EnumWeight;
 import TFC.Core.TFCTabs;
-import TFC.Items.Pottery.ItemPotteryMold;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemClayMold extends ItemPotteryMold {
+public class ItemClayMold extends ItemTerraBowBase {
 
-    
+    Icon ClayIcon;
+    Icon CeramicIcon;
     Icon CopperIcon;
     Icon BronzeIcon;
     Icon BismuthBronzeIcon;
     Icon BlackBronzeIcon;
     
+    public String[] MetaNames;
+    
     public ItemClayMold(int id) {
-        super(id);
-        ((Item)this).setCreativeTab(TFCTabs.TFCPottery);
-       
+        super(id,EnumSize.SMALL,EnumWeight.MEDIUM);
+        setCreativeTab(TFCTabs.TFCPottery);
+        MetaNames = new String[] { "arrowheadClayMold", "arrowheadCeramicMold", "arrowheadCopperMold", "arrowheadBronzeMold", "arrowheadBismuthBronzeMold", "arrowheadBlackBronzeMold" };
     }
     
 
@@ -50,8 +52,8 @@ public class ItemClayMold extends ItemPotteryMold {
     };
     
    @Override
-    public String getItemDisplayName(ItemStack itemstack) {
-       return ("" + StatCollector.translateToLocal(new StringBuilder().append(getUnlocalizedName(itemstack)).append(".name").toString())).trim();
+    public String getUnlocalizedName(ItemStack itemstack) {
+       return this.getUnlocalizedName() + "." + this.MetaNames[itemstack.getItemDamage()];
    }
 
     

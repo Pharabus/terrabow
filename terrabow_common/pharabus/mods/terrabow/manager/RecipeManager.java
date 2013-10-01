@@ -12,7 +12,10 @@ import TFC.API.Crafting.AnvilCraftingManagerTFC;
 import TFC.API.Crafting.AnvilRecipe;
 import TFC.API.Crafting.AnvilReq;
 import TFC.API.Crafting.CraftingManagerTFC;
+import TFC.API.Crafting.KilnCraftingManager;
+import TFC.API.Crafting.KilnRecipe;
 import TFC.API.Enums.CraftingRuleEnum;
+import TFC.Core.Recipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeManager {
@@ -132,6 +135,14 @@ public class RecipeManager {
 				}
 			}
 		}
+		
+	    GameRegistry.addShapelessRecipe(new ItemStack(ItemManager.Arrowhead, 1, 8), new Object[] { Recipes.getStackNoTemp(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 2)) });
+
+	    GameRegistry.addShapelessRecipe(new ItemStack(ItemManager.Arrowhead, 1, 7), new Object[] { Recipes.getStackNoTemp(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 3)) });
+
+	    GameRegistry.addShapelessRecipe(new ItemStack(ItemManager.Arrowhead, 1, 3), new Object[] { Recipes.getStackNoTemp(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 4)) });
+
+	    GameRegistry.addShapelessRecipe(new ItemStack(ItemManager.Arrowhead, 1, 4), new Object[] { Recipes.getStackNoTemp(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 5)) });
 	}
 	public static void RegisterAnvilRecipes(){
 		AnvilCraftingManagerTFC anvilManager = AnvilCraftingManagerTFC.getInstance();
@@ -195,6 +206,23 @@ public class RecipeManager {
 		//clay mold plan
 		craftingManager.addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1), new Object[] { "  #  ", " ### ", "#####", "#####", " ### ", Character.valueOf('#'), new ItemStack(TFCItems.FlatClay, 1, 1) });
 	}
+	
+	public static void registerKilnRecipes()
+	{
+	    KilnCraftingManager.getInstance().addRecipe(new KilnRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 0), 0, new ItemStack(ItemManager.ClayMoldArrowHead, 1, 1)));  
+	}
+	
+	public static void registerPouringRecipes()
+	{
+	    CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 2), new Object[] { "12", Character.valueOf('1'), Recipes.getStackTemp(new ItemStack(TFCItems.CopperUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(ItemManager.ClayMoldArrowHead, 1, 1) });
+
+	    CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 3), new Object[] { "12", Character.valueOf('1'), Recipes.getStackTemp(new ItemStack(TFCItems.BronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(ItemManager.ClayMoldArrowHead, 1, 1) });
+
+	    CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 4), new Object[] { "12", Character.valueOf('1'), Recipes.getStackTemp(new ItemStack(TFCItems.BismuthBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(ItemManager.ClayMoldArrowHead, 1, 1) });
+
+	    CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ItemManager.ClayMoldArrowHead, 1, 5), new Object[] { "12", Character.valueOf('1'), Recipes.getStackTemp(new ItemStack(TFCItems.BlackBronzeUnshaped, 1, 1)), Character.valueOf('2'), new ItemStack(ItemManager.ClayMoldArrowHead, 1, 1) });
+	}
+	
 	public static void RegisterItemHeat(){
 		HeatRegistry heatManager = HeatRegistry.getInstance();
 		

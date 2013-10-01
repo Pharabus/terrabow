@@ -81,7 +81,6 @@ public class ItemManager {
 	public static void SetItems(){
 		ItemManager.Arrowhead = new ItemArrowHead( TerraBowSettings.ArrowHeadID ).setUnlocalizedName( "ArrowHead" );
 		ItemManager.ClayMoldArrowHead = new ItemClayMold(TerraBowSettings.ClayMoldArrowHeadID);//
-		((ItemPotteryMold)ItemManager.ClayMoldArrowHead).setMetaNames(new String[] { "arrowheadClayMold", "arrowheadCeramicMold", "arrowheadCopperMold", "arrowheadBronzeMold", "arrowheadBismuthBronzeMold", "arrowheadBlackBronzeMold" });
 		((Item)ItemManager.ClayMoldArrowHead).setUnlocalizedName( "ClayMoldArrowHead" );
 		
 		ItemManager.FinishedWoodShaft = new ItemFinishedWoodShaft( TerraBowSettings.FinishedWoodShaftID ).setUnlocalizedName( "FinishedWoodShaft" );
@@ -194,7 +193,9 @@ public class ItemManager {
 		
 		//claymolds
 		ItemClayMold arrowheadMold = (ItemClayMold)ItemManager.ClayMoldArrowHead;
-		LanguageRegistry.addName(ItemManager.ClayMoldArrowHead, "Clay Arrowhead Mold");
+		
+	    LanguageRegistry.instance().addStringLocalization( "item.ClayMoldArrowHead.arrowheadClayMold.name", "Clay Arrowhead Mold" );
+	    LanguageRegistry.instance().addStringLocalization( "item.ClayMoldArrowHead.arrowheadCeramicMold.name", "Ceramic Arrowhead Mold" );
 		
 		//Finished Wood Shaft
 		ItemFinishedWoodShaft finishedWoodShaft = (ItemFinishedWoodShaft) ItemManager.FinishedWoodShaft;

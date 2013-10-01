@@ -53,6 +53,8 @@ public class TerraBowMod {
 		RecipeManager.RegisterRecipes();
 		RecipeManager.RegisterAnvilRecipes();
 		RecipeManager.RegisterKnappingRecipes();
+		RecipeManager.registerKilnRecipes();
+		RecipeManager.registerPouringRecipes();
 		RecipeManager.RegisterItemHeat();
 		
 		GameRegistry.registerCraftingHandler( new CraftingHandler() );
